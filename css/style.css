@@ -2259,10 +2259,10 @@ strong {
 }
 
 @media (prefers-color-scheme: dark) {
-  .fav-drawer {
-    background: #0b0f17;
-    border-color: #1f2937;
-  }
+  .fav-drawer{
+  background:#fff !important;
+  color:#111827 !important;
+}
 
   .fav-toggle {
     border-color: #e5e7eb;

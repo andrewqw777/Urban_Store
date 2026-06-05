@@ -329,15 +329,11 @@ window.onProductsRendered = function () {
 
 
 document.addEventListener("admin-ready", () => {
-  const addProductNav = document.getElementById("addProductNav");
 
-  if (addProductNav) {
-    addProductNav.style.display = window.isAdmin ? "block" : "none";
-  }
-
-  document.querySelectorAll(".btn-del").forEach((btn) => {
+  document.querySelectorAll(".admin-only").forEach((btn) => {
     btn.style.display = window.isAdmin ? "inline-flex" : "none";
   });
+
 });
 
 

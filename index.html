@@ -1237,7 +1237,6 @@
             const brand = (p.brand || "").toLowerCase();
             const search = (p.model || p.search || title || "").toLowerCase();
 
-            const showDelete = userIP && userIP === myIP;
 
             const type = (p.type || "").toLowerCase().trim();
             const gender = (p.gender || "").toLowerCase().trim();
@@ -1285,11 +1284,9 @@
   ♡
 </button>
 
-${window.isAdmin ? `
-<button class="btn-del" data-del="${doc.id}">
+<button class="btn-del admin-only" data-del="${doc.id}" style="display:none;">
   <i class="bx bx-trash"></i>
 </button>
-` : ""}
 
 
 
@@ -1341,6 +1338,9 @@ ${window.isAdmin ? `
   `
             );
 
+          });
+          document.querySelectorAll(".admin-only").forEach((btn) => {
+            btn.style.display = window.isAdmin ? "inline-flex" : "none";
           });
 
           grid.querySelectorAll(".btn-fav").forEach((btn) => {
