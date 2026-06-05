@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mașini de vânzare în Cahul | AutoHouse13</title>
+  <link rel="icon" href="../images/logo.jpg" />
+  <meta name="description" content="Imbracaminte de vânzare în Cahul | Urban Store" />
+
+  <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+  <!-- Slick -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+
+  <style>
+    .cart-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 2px solid #ffffff;
+      background: transparent;
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cart-toggle:hover {
+      background: #111827;
+      color: #fff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      header {
+        background: #0b0f17;
+        border-color: #1f2937;
+      }
+
+      .cart-toggle {
+        border-color: #e5e7eb;
+        color: #e5e7eb;
+      }
+
+      .cart-toggle:hover {
+        background: #e5e7eb;
+        color: #0b0f17;
+      }
+    }
+
+    .cart-drawer {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: min(460px, 96vw);
+      background: #fff;
+      border-right: 1px solid #e5e7eb;
+      box-shadow: 6px 0 24px rgba(2, 6, 23, 0.18);
+      transform: translateX(-105%);
+      transition: transform 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .cart-title {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .cart-close {
+      border: 0;
+      background: transparent;
+      font-weight: 800;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .cart-content {
+      flex: 1;
+      overflow: auto;
+      padding: 12px 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 22px 10px;
+      color: #64748b;
+    }
+
+    .cart-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px;
+      max-height: 120px;
+    }
+
+    .line-name {
+      font-weight: 700;
+    }
+
+    .line-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty button {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      background: #f3f4f6;
+      cursor: pointer;
+    }
+
+    .remove {
+      border: 0;
+      background: #dc2626;
+      color: #fff;
+      border-radius: 8px;
+      padding: 6px 8px;
+      cursor: pointer;
+    }
+
+    .section-titl {
+      margin: 12px 0 6px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .mini-form label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .mini-form input,
+    .mini-form textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .mini-form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .apply-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 10px 14px;
+      border: 2px solid #111827;
+      background: transparent;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pill--confirm {
+      border: 0;
+      background: #10b981;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    .muted {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .cart-summary {
+      border-top: 1px solid #e5e7eb;
+      padding: 12px 14px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .sum-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sum-row strong {
+      font-weight: 800;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .cart-drawer {
+        background: #0b0f17;
+        border-color: #1f2937;
+      }
+
+      .cart-head {
+        border-color: #1f2937;
+      }
+
+      .cart-content .cart-line {
+        border-color: #1f2937;
+      }
+
+      .mini-form input,
+      .mini-form textarea {
+        background: #0f172a;
+        color: #e5e7eb;
+        border-color: #334155;
+      }
+
+      .qty button {
+        border-color: #334155;
+        background: #111827;
+        color: #e5e7eb;
+      }
+
+      .pill {
+        border-color: #e5e7eb;
+        color: #e5e7eb;
+      }
+    }
+
+    .product-view {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px 18px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 30px;
+      font-family: system-ui, Arial, sans-serif;
+      color: #111;
+    }
+
+    .product-view-main {
+      background: #ddd;
+      height: 440px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .product-view-main img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .product-view-pill {
+      position: absolute;
+      left: 12px;
+      padding: 5px 10px;
+      color: #fff;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .product-view-pill.purple {
+      top: 12px;
+      background: #7c3aed;
+    }
+
+    .product-view-pill.red {
+      top: 48px;
+      background: #ef4444;
+    }
+
+    .product-view-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-view-nav.left {
+      left: 10px;
+    }
+
+    .product-view-nav.right {
+      right: 10px;
+    }
+
+    .product-view-thumbs {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .product-view-thumbs img {
+      width: 100%;
+      height: 60px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .product-view-name {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+
+    .product-view-meta {
+      font-size: 12px;
+      color: #333;
+      margin: 8px 0 12px;
+    }
+
+    .product-view-meta b {
+      color: #111;
+    }
+
+    .product-view-price {
+      font-size: 24px;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    .product-view-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .product-view-sizes button {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      background: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .size-btn.selected {
+      border: 2px solid #16a34a;
+      background: #eafff1;
+    }
+
+    .product-view-actions {
+      margin: 15px 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .product-view-actions .cart {
+      background: #16a34a;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      border: 0;
+    }
+
+    .product-view-actions .fav {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .product-view-desc p {
+      font-size: 13px;
+      color: #444;
+      margin: 10px 0 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px) {
+      .product-view {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .fav-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 2px solid #ffffff;
+      background: transparent;
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .fav-toggle:hover {
+      background: #111827;
+      color: #fff;
+    }
+
+    .fav-drawer {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: min(460px, 96vw);
+      background: #fff;
+      border-right: 1px solid #e5e7eb;
+      box-shadow: 6px 0 24px rgba(2, 6, 23, 0.18);
+      transform: translateX(-105%);
+      transition: transform 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .fav-drawer.open {
+      transform: translateX(0);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .fav-drawer {
+        background: #0b0f17;
+        border-color: #1f2937;
+      }
+
+      .fav-toggle {
+        border-color: #e5e7eb;
+        color: #e5e7eb;
+      }
+
+      .fav-toggle:hover {
+        background: #e5e7eb;
+        color: #0b0f17;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav container">
+
+      <!-- LEFT -->
+      <div class="nav-left">
+
+        <a href="../index.html" class="logo-content flex">
+          <img src="../images/logo.jpg" alt="Urban Store" class="logo-image" />
+        </a>
+
+      </div>
+
+      <!-- CENTER -->
+      <div class="nav-center" id="navMenu" aria-label="Meniu principal">
+
+        <i class="bx bx-x navClose-btn" aria-label="Închide meniul" role="button" tabindex="0"></i>
+
+        <ul class="menu-list">
+
+          <li>
+            <a href="../index.html#menu" class="nav-link">
+              Catalog
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#about" class="nav-link">
+              Despre Noi
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#contact" class="nav-link">
+              Contact
+            </a>
+          </li>
+
+
+          <!-- ADMIN -->
+          <li id="addProductNav" style="display:none;">
+            <a href="pages/adauga.html" class="nav-link">
+              Adaugă Produs
+            </a>
+          </li>
+
+          <li id="adminOrdersNav" style="display:none;">
+            <a href="pages/admin-orders.html" class="nav-link">
+              Comenzi
+            </a>
+          </li>
+
+
+          <!-- USER -->
+          <li id="loginNav">
+            <a href="login.html" class="nav-link">
+              Log In
+            </a>
+          </li>
+
+          <li id="userNav" style="display:none;">
+            <button id="logoutBtn" class="logout-btn">
+              Logout
+            </button>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="nav-right">
+
+        <div id="userNav" style="display:none;">
+          <button id="logoutBtn" class="logout-btn">
+            Logout
+          </button>
+        </div>
+
+        <div class="media-icons flex">
+
+          <a href="https://www.facebook.com">
+            <i class="bx bxl-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/accounts/login">
+            <i class="bx bxl-instagram-alt"></i>
+          </a>
+
+          <a href="https://www.youtube.com/login">
+            <i class="bx bxl-youtube"></i>
+          </a>
+
+        </div>
+
+        <button class="cart-toggle" id="openCart">
+
+          <span class="btn-icon">
+            🛒
+          </span>
+
+          <span class="btn-text">
+            Coș
+          </span>
+
+          <span id="cartCount" class="btn-count">
+            0
+          </span>
+
+        </button>
+
+        <button class="fav-toggle" id="openFav" type="button">
+
+          <span class="btn-icon">
+            ❤️
+          </span>
+
+          <span class="btn-text">
+            Favorite
+          </span>
+
+          <span id="favCount" class="btn-count">
+            0
+          </span>
+
+        </button>
+
+        <i class="bx bx-menu navOpen-btn" aria-label="Deschide meniul" role="button" tabindex="0"></i>
+
+      </div>
+
+    </nav>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+  </header>
+
+  <main style="
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 16px;
+        font-family: system-ui, Arial;
+      ">
+    <h1>Adaugă produs</h1>
+
+    <form id="addForm" style="display: grid; gap: 12px">
+      <label>Titlu
+        <input id="title" required style="
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+            " />
+      </label>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+        <label>Brand
+          <input id="brand" style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+              " />
+        </label>
+        <label>SKU
+          <input id="sku" style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+              " />
+        </label>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+        <label>Preț
+          <input id="price" type="number" min="0" required style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+              " />
+        </label>
+        <label>Monedă
+          <input id="currency" value="MDL" style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+              " />
+        </label>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+        <label>Etichetă mov (ex: LA COMANDĂ)
+          <input id="pillPurple" style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+              " />
+        </label>
+        <label>Etichetă roșu (ex: HOT)
+          <input id="pillRed" style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+              " />
+        </label>
+      </div>
+
+      <label>Mărimi (separate prin virgulă)
+        <input id="sizes" placeholder="40.5,41,42,42.5" style="
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+            " />
+      </label>
+
+      <!-- Tip / Pentru / Categorie -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+        <label>
+          Tip produs
+          <select id="type" required style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background: #fff;
+              ">
+            <option value="">Alege tipul</option>
+            <option value="incaltaminte">Încălțăminte</option>
+            <option value="imbracaminte">Îmbrăcăminte</option>
+            <option value="accesorii">Accesorii</option>
+          </select>
+        </label>
+
+        <label>
+          Pentru
+          <select id="gender" required style="
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background: #fff;
+              ">
+            <option value="">Alege</option>
+            <option value="barbati">Bărbați</option>
+            <option value="femei">Femei</option>
+            <option value="copii">Copii</option>
+            <option value="unisex">Unisex</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Categorie (opțional, ex: sneakers / tricou / geacă)
+        <input id="category" placeholder="ex: sneakers" style="
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+            " />
+      </label>
+
+      <label>Descriere (fiecare rând = paragraf)
+        <textarea id="description" rows="6" placeholder="Paragraf 1&#10;Paragraf 2&#10;Paragraf 3" style="
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+            "></textarea>
+      </label>
+
+      <label>Poze (multiple)
+        <input id="images" type="file" accept="image/*" multiple required />
+      </label>
+
+      <button id="saveBtn" type="submit" style="
+            padding: 14px;
+            border: 0;
+            border-radius: 12px;
+            background: #16a34a;
+            color: #fff;
+            font-weight: 900;
+            cursor: pointer;
+          ">
+        Salvează produs
+      </button>
+
+      <progress id="prog" value="0" max="100" style="display: none; height: 18px"></progress>
+      <div id="msg" style="font-weight: 800"></div>
+      <div id="linkBox" style="word-break: break-all"></div>
+    </form>
+  </main>
+
+  <script>
+    // Firebase init (același config ca la tine)
+    const firebaseConfig = {
+      apiKey: "AIzaSyBHda-LjpBJeBGjGJNLiMkfICJHSQhR0tA",
+      authDomain: "site12-a5.firebaseapp.com",
+      projectId: "site12-a5",
+      storageBucket: "site12-a5.firebasestorage.app",
+      messagingSenderId: "729283937837",
+      appId: "1:729283937837:web:ab972c159fd1aa90c29aa4",
+    };
+
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+    const auth = firebase.auth();
+
+    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+    auth.onAuthStateChanged(async (user) => {
+      if (!user) {
+        location.href = "login.html";
+        return;
+      }
+
+      const userDoc = await db
+        .collection("users")
+        .doc(user.uid)
+        .get();
+
+      if (!userDoc.exists || userDoc.data().role !== "admin") {
+        location.href = "../index.html";
+        return;
+      }
+
+      document.body.style.display = "block";
+    });
+    const form = document.getElementById("addForm");
+    const msg = document.getElementById("msg");
+    const linkBox = document.getElementById("linkBox");
+    const prog = document.getElementById("prog");
+    const saveBtn = document.getElementById("saveBtn");
+
+    function setMsg(t, ok = true) {
+      msg.textContent = t;
+      msg.style.color = ok ? "green" : "crimson";
+    }
+
+    async function uploadFiles(files) {
+      const urls = [];
+      prog.style.display = "block";
+      prog.value = 0;
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const safeName = file.name.replaceAll(" ", "_");
+        const path = `products/${Date.now()}_${i}_${safeName}`;
+        const ref = storage.ref().child(path);
+
+        const task = ref.put(file);
+
+        const url = await new Promise((resolve, reject) => {
+          task.on(
+            "state_changed",
+            (snap) => {
+              const fp = (snap.bytesTransferred / snap.totalBytes) * 100;
+              const overall = ((i + fp / 100) / files.length) * 100;
+              prog.value = Math.round(overall);
+            },
+            reject,
+            async () => resolve(await ref.getDownloadURL()),
+          );
+        });
+
+        urls.push(url);
+      }
+
+      prog.value = 100;
+      return urls;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      linkBox.innerHTML = "";
+
+      try {
+        saveBtn.disabled = true;
+
+        const title = document.getElementById("title").value.trim();
+        const brand = document.getElementById("brand").value.trim();
+        const sku = document.getElementById("sku").value.trim();
+        const price = Number(document.getElementById("price").value);
+        const currency =
+          document.getElementById("currency").value.trim() || "MDL";
+
+        // ✅ NOI (trebuie să existe în HTML)
+        const type = (document.getElementById("type")?.value || "")
+          .trim()
+          .toLowerCase();
+        const gender = (document.getElementById("gender")?.value || "")
+          .trim()
+          .toLowerCase();
+        const category = (document.getElementById("category")?.value || "")
+          .trim()
+          .toLowerCase();
+
+        const pillPurple = document.getElementById("pillPurple").value.trim();
+        const pillRed = document.getElementById("pillRed").value.trim();
+
+        const sizesRaw = document.getElementById("sizes").value.trim();
+        const sizes = sizesRaw
+          ? sizesRaw
+            .split(",")
+            .map((s) => s.trim().toLowerCase())
+            .filter(Boolean)
+          : [];
+
+        const descRaw = document.getElementById("description").value;
+        const description = descRaw
+          ? descRaw
+            .split("\n")
+            .map((s) => s.trim())
+            .filter(Boolean)
+          : [];
+
+        const files = document.getElementById("images").files;
+
+        if (!title) return setMsg("Completează titlul.", false);
+        if (!brand) return setMsg("Completează brandul.", false);
+        if (!Number.isFinite(price)) return setMsg("Preț invalid.", false);
+        if (!files || files.length === 0) return setMsg("Alege poze.", false);
+
+        // validări pentru noile câmpuri
+        if (!type)
+          return setMsg("Alege tipul (încălțăminte/îmbrăcăminte).", false);
+        if (!gender)
+          return setMsg(
+            "Alege pentru cine este (bărbați/femei/copii).",
+            false,
+          );
+
+        setMsg("Se urcă pozele...");
+        const imageUrls = await uploadFiles(files);
+
+        setMsg("Se salvează produsul...");
+
+        const docRef = await db.collection("products").add({
+          title,
+          brand: brand.toLowerCase(),
+          sku,
+          price,
+          currency,
+
+          // ✅ NOI
+          type, // incaltaminte / imbracaminte / accesorii
+          gender, // barbati / femei / copii / unisex
+          category, // optional
+
+          pills: {
+            purple: pillPurple || null,
+            red: pillRed || null,
+          },
+
+          sizes,
+          images: imageUrls,
+          description,
+
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+
+        setMsg("Gata ✅ produs adăugat!");
+
+        const link = `pages/product.html?id=${docRef.id}`;
+        linkBox.innerHTML = `Link produs: <a href="../${link}" target="_blank">${link}</a>`;
+
+        form.reset();
+        prog.style.display = "none";
+      } catch (err) {
+        console.error(err);
+        setMsg("Eroare: " + (err.message || err), false);
+      } finally {
+        saveBtn.disabled = false;
+      }
+    });
+  </script>
+
+  <script src="../js/auth.js" defer></script>
+  <script src="../js/cart.js" defer></script>
+  <script src="../js/swiper-bundle.min.js" defer></script>
+  <script src="../js/scrollreveal.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <script src="../js/favourites.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light">
+  <title>Imbracaminte de vânzare în Cahul | Urban Store</title>
+  <link rel="icon" href="images/logo.jpg" />
+  <meta name="description" content="Imbracaminte de vânzare în Cahul la prețuri accesibile" />
+
+  <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <style>
+    #contact {
+      --w: min(1150px, 96vw);
+      --brand: #000000;
+      --brand-hover: #ffffff;
+      --brand-2: #22c55e;
+      --ring: rgba(99, 102, 241, 0.25);
+      --muted: #475569;
+      --line: #e5e7eb;
+      --text: #0f172a;
+    }
+
+    @media (prefers-color-scheme: light) {
+      #contact {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      }
+    }
+
+    #contact .wrap {
+      width: var(--w);
+      margin-inline: auto;
+    }
+
+    #contact .card {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    #contact h2 {
+      font-size: clamp(28px, 4.5vw, 36px);
+      line-height: 1.1;
+      margin: 0 0 10px;
+      letter-spacing: 0.3px;
+    }
+
+    #contact p.lead {
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: clamp(15px, 2.9vw, 17px);
+      text-align: center;
+    }
+
+    #contact .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 16px 0 0;
+      width: 100%;
+    }
+
+    #contact .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid var(--brand);
+      background: transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      color: var(--brand);
+      box-shadow: none;
+    }
+
+    #contact .btn:hover {
+      transform: translateY(-1px);
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand-hover);
+    }
+
+    #contact .btn::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(130deg,
+          color-mix(in oklab, var(--brand) 35%, transparent),
+          transparent 38%,
+          color-mix(in oklab, var(--brand-2) 35%, transparent));
+      opacity: 0.35;
+      z-index: 0;
+      filter: blur(8px);
+    }
+
+    #contact .btn>span {
+      position: relative;
+      z-index: 1;
+    }
+
+    #contact .contact-form {
+      display: grid;
+      gap: 16px;
+      margin: 16px auto 0;
+      padding: 20px;
+      border: 1px solid #d1d5db;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+      max-width: 620px;
+      width: 100%;
+    }
+
+    #contact .contact-form label {
+      display: grid;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    #contact .contact-form input,
+    #contact .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      color: #111827;
+      transition: all 0.2s ease;
+    }
+
+    #contact .contact-form input:focus,
+    #contact .contact-form textarea:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 5px var(--ring);
+    }
+
+    #contact .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    #contact .form-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 6px 0 0;
+    }
+
+    #contact .service-area {
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    #contact .service-area strong {
+      color: var(--text);
+    }
+
+    @media (min-width: 900px) {
+      #contact .grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 28px;
+        align-items: start;
+      }
+
+      #contact .contact-buttons {
+        flex-direction: column;
+      }
+
+      #contact .contact-buttons .btn {
+        width: 100%;
+        min-width: unset;
+      }
+
+      #contact .contact-form {
+        margin-top: 0;
+      }
+    }
+
+    #contact .contact-left {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    #contact .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    #contact .contact-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+    }
+
+    #contact .contact-list li+li {
+      border-top: 1px solid var(--line);
+    }
+
+    #contact .contact-list span {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    #contact .contact-list a {
+      color: #0f172a;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    #contact .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    #contact .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-items: start;
+      margin-top: 14px;
+    }
+
+    #contact .map-wrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+
+
+    #contact .map-wrap {
+      border: 2px solid #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: none;
+    }
+
+    #contact .map-wrap iframe {
+      width: 100%;
+      height: 280px;
+      border: 0;
+      display: block;
+      position: relative;
+      z-index: 0;
+    }
+
+    @media (min-width: 900px) {
+      #contact .contact-layout {
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 28px;
+        align-items: start;
+      }
+
+      #contact .map-wrap {
+        max-width: 520px;
+        margin: 0;
+        position: sticky;
+        top: 92px;
+      }
+
+      #contact .map-wrap iframe {
+        height: 360px;
+      }
+
+      #contact .right-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav container">
+
+      <!-- LEFT -->
+      <div class="nav-left">
+
+        <a href="index.html" class="logo-content flex">
+          <img src="images/logo.jpg" alt="Urban Store" class="logo-image" />
+        </a>
+
+      </div>
+
+      <!-- CENTER -->
+      <div class="nav-center" id="navMenu" aria-label="Meniu principal">
+        <i class="bx bx-x navClose-btn" aria-label="Închide meniul" role="button" tabindex="0"></i>
+
+        <ul class="menu-list">
+          <li>
+            <a href="#menu" class="nav-link">Catalog</a>
+          </li>
+
+          <li>
+            <a href="#about" class="nav-link">Despre Noi</a>
+          </li>
+
+          <li>
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+
+          <li id="addProductNav" style="display:none;">
+            <a href="pages/adauga.html" class="nav-link">Adaugă Produs</a>
+          </li>
+
+          <li id="adminOrdersNav" style="display:none;">
+            <a href="pages/admin-orders.html" class="nav-link">Comenzi</a>
+          </li>
+
+          <li id="loginNav">
+            <a href="pages/login.html" class="nav-link">Log In</a>
+          </li>
+
+          <li id="userNav" style="display:none;">
+            <button id="logoutBtn" class="logout-btn">
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <div class="media-icons flex">
+          <a href="https://www.facebook.com">
+            <i class="bx bxl-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/accounts/login">
+            <i class="bx bxl-instagram-alt"></i>
+          </a>
+
+          <a href="https://www.youtube.com/login">
+            <i class="bx bxl-youtube"></i>
+          </a>
+        </div>
+
+        <button class="cart-toggle" id="openCart">
+          <span class="btn-icon">🛒</span>
+          <span class="btn-text">Coș</span>
+          <span id="cartCount" class="btn-count">0</span>
+        </button>
+
+        <button class="fav-toggle" id="openFav" type="button">
+          <span class="btn-icon">❤️</span>
+          <span class="btn-text">Favorite</span>
+          <span id="favCount" class="btn-count">0</span>
+        </button>
+
+        <i class="bx bx-menu navOpen-btn" aria-label="Deschide meniul" role="button" tabindex="0"></i>
+      </div>
+
+    </nav>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+  </header>
+
+
+
+  <main>
+    <header class="hero-banner" id="hero">
+      <div class="overlay"></div>
+      <div class="hero-content centered-text">
+        <div class="welcome"><span>Bine ați venit</span></div>
+        <h1>Urban Store <span>-</span> Clothing</h1>
+        <div class="hero-buttons">
+          <button class="btn btn-primary">
+            <a href="#about">Citește mai mult</a>
+          </button>
+          <button class="btn btn-secondary">
+            <a href="#menu">Catalogul nostru</a>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+
+
+    <section class="benefits-row">
+      <div class="benefit-item">
+        <img src="images/medal.png" class="benefit-icon">
+        <div class="benefit-text">
+          <h3>Produse 100% Originale</h3>
+          <p>Toate produsele sunt verificate înainte de expediere și garantăm autenticitatea fiecărei perechi.</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <img src="images/fastcar.jpeg" class="benefit-icon">
+        <div class="benefit-text">
+          <h3>Livrăm în toată Moldova</h3>
+          <p>Curier rapid în toată țara — comanda ajunge direct la ușa dvs., fără griji.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section menu" id="menu">
+      <h2 class="section-title">Produsele noastre:</h2>
+
+
+      <div class="parent">
+        <div class="filter">
+          <h3 style="color: white">Alege produsul după filtre!</h3>
+
+          <div class="select-box">
+            <select id="brand" onchange="applyFilters()">
+              <option value="" selected>Alege brandul</option>
+              <option value="nike">Nike</option>
+              <option value="jordan">Jordan</option>
+              <option value="adidas">Adidas</option>
+              <option value="reebook">Reebook</option>
+              <option value="asics">Asics</option>
+              <option value="birkenstock">Birkenstock</option>
+              <option value="calvinklein">Calvin-Klein</option>
+              <option value="clarks">Clarks</option>
+              <option value="converse">Converse</option>
+              <option value="crocs">Crocs</option>
+              <option value="drmartens">Dr. Martens</option>
+              <option value="emporioarmani">Emporio Armani</option>
+              <option value="guess">Guess</option>
+              <option value="jackjones">Jack&Jones</option>
+              <option value="lacoste">Lacoste</option>
+              <option value="levis">Levi's</option>
+              <option value="jackwolfskin">Jack Wolfskin</option>
+              <option value="newbalance">New Balance</option>
+              <option value="puma">Puma</option>
+              <option value="ralphlauren">Ralphlauren</option>
+              <option value="tommyhilfiger">Tommy Hilfiger</option>
+              <option value="underarmour">Underarmour</option>
+              <option value="vans">Vans</option>
+              <option value="louisvuitton">Louis Vuitton</option>
+              <option value="rafsimons">Raf Simons</option>
+            </select>
+          </div>
+
+          <div class="select-box">
+            <select id="type" onchange="applyFilters()">
+              <option value="" selected>Tip produs</option>
+              <option value="incaltaminte">Încălțăminte</option>
+              <option value="imbracaminte">Îmbrăcăminte</option>
+              <option value="accesorii">Accesorii</option>
+            </select>
+          </div>
+
+          <div class="select-box">
+            <select id="gender" onchange="applyFilters()">
+              <option value="" selected>Sex</option>
+              <option value="barbati">Bărbați</option>
+              <option value="femei">Femei</option>
+              <option value="copii">Copii</option>
+              <option value="unisex">Unisex</option>
+            </select>
+          </div>
+
+          <div class="model-box" id="filter-model">
+            <input type="text" id="search" placeholder="Model" oninput="applyFilters()" />
+          </div>
+
+
+
+          <div class="select-box">
+            <select id="size" onchange="applyFilters()">
+              <option value="" selected>Toate mărimile</option>
+              <option value="35">35</option>
+              <option value="35.5">35.5</option>
+              <option value="36">36</option>
+              <option value="36.5">36.5</option>
+              <option value="37">37</option>
+              <option value="37.5">37.5</option>
+              <option value="38">38</option>
+              <option value="38.5">38.5</option>
+              <option value="39">39</option>
+              <option value="39.5">39.5</option>
+              <option value="40">40</option>
+              <option value="40.5">40.5</option>
+              <option value="41">41</option>
+              <option value="41.5">41.5</option>
+              <option value="42">42</option>
+              <option value="42.5">42.5</option>
+              <option value="43">43</option>
+              <option value="43.5">43.5</option>
+              <option value="44">44</option>
+              <option value="44.5">44.5</option>
+              <option value="45">45</option>
+              <option value="45.5">45.5</option>
+              <option value="46">46</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="color: white">Preț (MDL):</label>
+
+            <div class="group-horizontal">
+              <div>
+                <label for="pret-min">Min: <span id="valoare-pret-min"></span></label>
+                <input type="number" id="pret-min" min="0" max="99000" step="1000" value="0" oninput="applyFilters()" />
+              </div>
+
+              <div>
+                <label for="pret-max">Max: <span id="valoare-pret-max"></span></label>
+                <input type="number" id="pret-max" min="0" max="99000" step="1000" value="99000"
+                  oninput="applyFilters()" />
+              </div>
+            </div>
+          </div>
+
+          <div class="reset-container">
+            <button type="button" class="reset-button" onclick="resetFilters()">
+              Resetează filtrele
+            </button>
+          </div>
+
+        </div>
+        <div class="mobile-filters-row">
+          <button class="mobile-filters-trigger" id="mobileFiltersBtn" type="button" aria-expanded="false">
+            <span class="mf-icon">☰</span>
+            <span class="mf-text">Filters</span>
+          </button>
+        </div>
+
+        <div class="filters-overlay" id="filtersOverlay"></div>
+
+        <div class="card-list" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="brands">
+      <div class="brands-container">
+        <h2 class="brands-title">Brand-urile cu care lucrăm</h2>
+
+        <div class="brands-grid">
+          <div class="brand-cell" data-brand="nike">
+            <img src="./images/logos/nike.svg" alt="Nike">
+          </div>
+
+          <div class="brand-cell" data-brand="adidas">
+            <img src="./images/logos/adidas-13.svg" alt="Adidas">
+          </div>
+
+          <div class="brand-cell" data-brand="reebook">
+            <img src="./images/logos/Reebok-Logo.jpg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="asics">
+            <img src="./images/logos/asics-6.svg" alt="Nike">
+          </div>
+
+          <div class="brand-cell" data-brand="underarmour">
+            <img src="./images/logos/under-armour-logo.svg" alt="Adidas">
+          </div>
+
+          <div class="brand-cell" data-brand="emporioarmani">
+            <img src="./images/logos/emporio-armani.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="birkenstock">
+            <img src="./images/logos/birkenstock-1.svg" alt="Nike">
+          </div>
+
+          <div class="brand-cell" data-brand="newbalance">
+            <img src="./images/logos/new-balance-2.svg" alt="Adidas">
+          </div>
+
+          <div class="brand-cell" data-brand="calvinklein">
+            <img src="./images/logos/calvin-klein-1.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="clarks">
+            <img src="./images/logos/clarks.svg" alt="Nike">
+          </div>
+
+          <div class="brand-cell" data-brand="converse">
+            <img src="./images/logos/converse.svg" alt="Adidas">
+          </div>
+
+          <div class="brand-cell" data-brand="crocs">
+            <img src="./images/logos/crocs.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="drmartens">
+            <img src="./images/logos/dr-martens.svg" alt="Nike">
+          </div>
+
+          <div class="brand-cell" data-brand="guess">
+            <img src="./images/logos/guess-1.svg" alt="Adidas">
+          </div>
+
+          <div class="brand-cell" data-brand="tommyhilfiger">
+            <img src="./images/logos/tommy-hilfiger-3.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="jackjones">
+            <img src="./images/logos/jack-jones-2.svg" alt="Nike">
+          </div>
+
+          <div class="brand-cell" data-brand="jackwolfskin">
+            <img src="./images/logos/logo-jack-wolfskin-1.svg" alt="Adidas">
+          </div>
+
+          <div class="brand-cell" data-brand="lacoste">
+            <img src="./images/logos/lacoste-logo.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="levis">
+            <img src="./images/logos/levis-1.svg" alt="Nike">
+          </div>
+
+          <div class="brand-cell" data-brand="puma">
+            <img src="./images/logos/puma-logo.svg" alt="Adidas">
+          </div>
+
+          <div class="brand-cell" data-brand="ralphlauren">
+            <img src="./images/logos/ralphlauren.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="vans">
+            <img src="./images/logos/vans-3.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="jordan">
+            <img src="./images/logos/jordan-2.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="louisvuitton">
+            <img src="./images/logos/louis-vuitton-1.svg" alt="Reebook">
+          </div>
+
+          <div class="brand-cell" data-brand="rafsimons">
+            <img src="./images/logos/Raf_Simons.png" alt="Reebook">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+    <main class="about" id="about">
+      <h2>About Us</h2>
+      <section class="sec">
+        <div class="container grid-2">
+          <div class="card soft">
+            <h2>Povestea noastră</h2>
+            <p>
+              Urban Store a apărut din dorința de a face mai simplu drumul către
+              un stil urban bine pus la punct: fără prea multă agitație, fără
+              compromisuri la calitate.
+            </p>
+            <p>
+              Ne place minimalismul, ne place streetwear-ul curat, ne place să
+              combinăm piese basic cu accente statement. De aceea, fiecare
+              produs ajunge în shop doar dacă trece testul:
+              <strong>ar arăta bine în viața reală, zi de zi?</strong>
+            </p>
+          </div>
+
+          <div class="ca">
+            <h2>Ce găsești la noi</h2>
+            <ul class="lis">
+              <li>
+                <strong>Îmbrăcăminte</strong> pentru femei și bărbați: tricouri,
+                hanorace, pantaloni, jachete.
+              </li>
+              <li>
+                <strong>Outfit-uri ușor de combinat</strong>, în culori care se
+                potrivesc între ele.
+              </li>
+              <li>
+                <strong>Drop-uri</strong> cu produse noi, ca să ai mereu opțiuni
+                fresh.
+              </li>
+              <li>
+                <strong>Recomandări de mărime</strong> și suport, ca să comanzi
+                sigur.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="head">
+            <h2>Valorile Urban Store</h2>
+            <p>
+              Lucruri simple, dar importante, pe care le respectăm în fiecare
+              zi.
+            </p>
+          </div>
+
+          <div class="cards-3">
+            <article class="mini">
+              <h3>Calitate & confort</h3>
+              <p>
+                Materiale ok, croieli bune și piese care se simt bine când le
+                porți.
+              </p>
+            </article>
+            <article class="mini">
+              <h3>Stil fără stres</h3>
+              <p>
+                Produse care se combină ușor, ca să-ți faci outfit-ul în 30 de
+                secunde.
+              </p>
+            </article>
+            <article class="mini">
+              <h3>Respect pentru client</h3>
+              <p>Răspundem repede, te ajutăm cu mărimea și livrăm corect.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+
+
+
+
+
+    <section class="section contact" id="contact">
+
+
+      <div class="wrap">
+        <div class="card">
+          <header style="background-color: white;">
+            <h2>Contact</h2>
+            <p class="lead">
+              Ai o întrebare? Ne găsești pe Instagram sau lasă-ne un mesaj mai jos.
+            </p>
+          </header>
+
+          <div class="contact-layout">
+            <div class="map-wrap">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d694.0786806430478!2d28.192504528578247!3d45.90501713139295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65d0074a44c51%3A0x3e66911f7c5872d2!2sPiata%20Centrala!5e0!3m2!1sen!2s!4v1770494091264!5m2!1sen!2s"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+
+            <div class="right-wrap">
+              <div class="grid">
+                <div class="contact-left">
+                  <ul class="contact-list" aria-label="Date de contact">
+                    <li>
+                      <span>Telefon</span><a href="tel:+37378136788">+373 781 36 788</a>
+                    </li>
+                    <li>
+                      <span>Instagram</span><a href="https://instagram.com/@urban_store.md" target="_blank"
+                        rel="noopener">@Urban_Store.md</a>
+                    </li>
+                    <li>
+                      <span>Email</span><a href="mailto:stua7231@gmail.com">stua7231@gmail.com</a>
+                    </li>
+                    <li>
+                      <span>Adresa</span><a>Strada 31 August 1989 12, MD-3909, Cahul, Moldova</a>
+                    </li>
+                  </ul>
+                  <div class="contact-buttons" role="group" aria-label="Acțiuni rapide">
+                    <a href="tel:+37378136788" class="btn" aria-label="Sună acum"><span>Sună acum</span></a>
+                    <a href="https://instagram.com/urban_store.md" target="_blank" rel="noopener" class="btn"
+                      aria-label="Scrie pe Instagram"><span>Scrie pe Instagram</span></a>
+                    <a href="mailto:stua7231@gmail.com" class="btn" aria-label="Trimite email"><span>Trimite
+                        email</span></a>
+
+                  </div>
+                </div>
+
+                <form class="contact-form" aria-label="Formular contact" id="contactForm">
+                  <div class="review-reward">
+                    🎁 Lasă o recenzie și primești instant un cod de reducere de 10% pe email.
+                  </div>
+                  <label>
+                    Nume
+                    <input type="text" name="name" autocomplete="name" required />
+                  </label>
+                  <label>
+                    Email
+                    <input type="email" name="email" autocomplete="email" inputmode="email" required />
+                  </label>
+                  <label>
+                    Mesaj
+                    <textarea name="message" rows="5" required></textarea>
+                  </label>
+                  <button type="submit" class="btn"><span>Trimite</span></button>
+                  <p class="form-note">
+                    Răspundem în 24–48 de ore. Informațiile vor fi folosite doar
+                    pentru a vă răspunde și pentru cupon.
+                  </p>
+                  <p id="formMsg" class="form-note" style="display: none; font-weight: 700"></p>
+                </form>
+              </div>
+
+              <p class="service-area">
+                <strong>Servim în:</strong> toată Moldova / livrări naționale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>Vrei să-ți alegem împreună mărimea?</h2>
+          <p>
+            Scrie-ne și îți recomandăm rapid ce ți se potrivește, în funcție
+            de înălțime și greutate.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="bt bt-primary" href="./index.html#contact">Scrie-ne</a>
+          <a class="bt bt-outline" href="./index.html#menu">Cumpără acum</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section footer">
+      <div class="footer-container container">
+        <div class="footer-content">
+          <a href="#" class="logo-content flex">
+            <img src="images/logo-removebg-preview.png" alt="AutoHouse 13" class="logo-image-footer" />
+          </a>
+        </div>
+
+        <div class="footer-location flex">
+          <i class="bx bx-map map-icon"></i>
+          <div class="location-text">
+            Strada 31 August 1989 12, MD-3909, Cahul, Moldova
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4 class="footerLinks-title">Linkuri utile</h4>
+          <ul>
+
+            <li>
+              <a href="index.html#contact" class="footer-link">Contacte</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Temeni și Condiții</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Politica de confidențialitate</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-tekwill">
+        Acest website a fost realizat în cadrul competiției ”Tekwill Junior
+        Ambassadors” organizat de proiectul ”Tekwill în Fiecare Școală”
+      </div>
+    </footer>
+
+    <a href="#hero" class="scrollUp-btn flex">
+      <i class="bx bx-up-arrow-alt scrollUp-icon"></i>
+    </a>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Coș de cumpărături" style="background-color: white;">
+    <div class="cart-head">
+      <h3 class="cart-title">Coșul tău</h3>
+      <button class="cart-close" id="closeCart">x</button>
+    </div>
+
+    <div class="cart-content" id="cartItems">
+      <p class="cart-empty">Coșul este gol.</p>
+    </div>
+
+    <div class="cart-content">
+      <h4 class="section-titl">Rezumat comandă</h4>
+
+      <div class="cart-summary">
+        <div class="sum-row">
+          <span>Subtotal</span>
+          <strong><span id="sumSubtotal">0</span> MDL</strong>
+        </div>
+        <div class="sum-row">
+          <span>Reducere</span>
+          <strong><span id="sumDiscount">0</span> MDL</strong>
+        </div>
+        <div class="sum-row">
+          <span>Total</span>
+          <strong><span id="sumTotal">0</span> MDL</strong>
+        </div>
+      </div>
+
+      <button type="button" class="pill--confirm" id="checkoutBtn" disabled>
+        Checkout
+      </button>
+
+      <p class="muted" style="margin-top: 8px">
+        Completezi datele de livrare la pasul următor.
+      </p>
+    </div>
+    <div class="modal-overlay" id="checkoutModal" aria-hidden="true">
+      <div class="modal">
+        <div class="modal-head">
+          <h4 class="section-titl" style="margin: 0">Date livrare</h4>
+          <button type="button" class="modal-close" id="closeCheckout">✕</button>
+        </div>
+
+        
+
+        <form class="checkout-page" id="checkoutForm">
+
+          <h3>1. Date livrare</h3>
+
+          <div class="checkout-grid">
+            <label>
+              Prenume *
+              <input type="text" name="firstName" required>
+            </label>
+
+            <label>
+              Nume *
+              <input type="text" name="lastName" required>
+            </label>
+          </div>
+
+          <label>
+            Țară/regiune *
+            <select name="country" required>
+              <option value="Republica Moldova">Republica Moldova</option>
+            </select>
+          </label>
+
+          <label>
+            Localitate *
+            <select name="locality" id="localitySelect" required>
+              <option value="">Alege localitatea</option>
+
+              <option value="Chișinău">Chișinău</option>
+              <option value="Bălți">Bălți</option>
+              <option value="Cahul">Cahul</option>
+              <option value="Comrat">Comrat</option>
+              <option value="Ungheni">Ungheni</option>
+              <option value="Orhei">Orhei</option>
+              <option value="Soroca">Soroca</option>
+              <option value="Edineț">Edineț</option>
+              <option value="Hîncești">Hîncești</option>
+              <option value="Căușeni">Căușeni</option>
+              <option value="Strășeni">Strășeni</option>
+              <option value="Ialoveni">Ialoveni</option>
+              <option value="Nisporeni">Nisporeni</option>
+              <option value="Leova">Leova</option>
+              <option value="Cantemir">Cantemir</option>
+              <option value="Taraclia">Taraclia</option>
+              <option value="Basarabeasca">Basarabeasca</option>
+              <option value="Ștefan Vodă">Ștefan Vodă</option>
+              <option value="Anenii Noi">Anenii Noi</option>
+              <option value="Criuleni">Criuleni</option>
+              <option value="Dubăsari">Dubăsari</option>
+              <option value="Rezina">Rezina</option>
+              <option value="Șoldănești">Șoldănești</option>
+              <option value="Florești">Florești</option>
+              <option value="Drochia">Drochia</option>
+              <option value="Rîșcani">Rîșcani</option>
+              <option value="Glodeni">Glodeni</option>
+              <option value="Fălești">Fălești</option>
+              <option value="Sîngerei">Sîngerei</option>
+              <option value="Telenești">Telenești</option>
+              <option value="Călărași">Călărași</option>
+              <option value="Ocnița">Ocnița</option>
+              <option value="Briceni">Briceni</option>
+              <option value="Dondușeni">Dondușeni</option>
+              <option value="Glodeni">Glodeni</option>
+              <option value="Vulcănești">Vulcănești</option>
+              <option value="Ceadîr-Lunga">Ceadîr-Lunga</option>
+              <option value="Tvardița">Tvardița</option>
+            </select>
+          </label>
+
+          <label>
+            Stradă *
+            <input type="text" name="address" placeholder="Adresă, nume stradă, număr etc." required>
+          </label>
+
+          <label>
+            Apartament, complex, unitate
+            <input type="text" name="apartment" placeholder="Opțional">
+          </label>
+
+          <label>
+            Cod poștal *
+            <input
+              type="text"
+              name="postalCode"
+              placeholder="Ex: 3909"
+              required
+            >
+          </label>
+
+          <label>
+            Telefon *
+            <input type="tel" name="phone" required>
+          </label>
+
+          <label>
+            Adresă email *
+            <input type="email" name="email" required>
+          </label>
+
+          <label>
+            Note despre comandă
+            <textarea name="notes" rows="4" placeholder="Opțional"></textarea>
+          </label>
+
+          <h3>2. Metoda de livrare</h3>
+
+          <label class="checkout-option">
+            <input type="radio" name="deliveryMethod" value="Livrare prin curier" checked>
+            <span>Livrare prin curier</span>
+          </label>
+
+          <label class="checkout-option" id="pickupOptionBox" style="display:none;">
+            <input type="radio" name="deliveryMethod" value="Ridicare personală Cahul">
+            <span>Ridicare personală din Cahul</span>
+          </label>
+
+          <h3>Cupon de reducere</h3>
+
+          <div class="apply-row">
+            <input type="text" id="couponInput" placeholder="AH-XXXX-XXXX">
+            <button type="button" class="pill" id="applyCoupon">Aplică</button>
+          </div>
+
+          <p id="couponMsg" class="muted"></p>
+
+          <p class="muted">
+            Cuponul este opțional. Dacă este valid, reducerea se aplică la total.
+          </p>
+
+          <h3>3. Metoda de achitare</h3>
+
+          <label class="checkout-option">
+            <input type="radio" name="paymentMethod" value="cash" checked>
+            <span>Plată la livrare / curier</span>
+          </label>
+
+          <label class="checkout-option">
+            <input type="radio" name="paymentMethod" value="online">
+            <span>Achită online cu cardul</span>
+          </label>
+
+          <div id="paypal-button-container" style="display:none; margin-top:20px;"></div>
+          <p id="paypalInfo" class="paypal-info" style="display:none;">
+            Comanda va fi confirmată automat după efectuarea plății.
+          </p>
+          <div class="cart-summary" style="margin-bottom: 10px">
+          <div class="sum-row">
+            <span>Subtotal</span>
+            <strong><span id="mSumSubtotal">0</span> MDL</strong>
+          </div>
+          <div class="sum-row">
+            <span>Reducere</span>
+            <strong><span id="mSumDiscount">0</span> MDL</strong>
+          </div>
+          <div class="sum-row">
+            <span>Total</span>
+            <strong><span id="mSumTotal">0</span> MDL</strong>
+          </div>
+        </div>
+
+
+
+          <button type="submit" class="place-order-btn" id="placeOrder">
+            PLASEAZĂ COMANDA
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+
+
+    <aside class="fav-drawer" id="favDrawer" aria-label="Favorite">
+      <div class="cart-head">
+        <h3 class="cart-title">Favorite</h3>
+        <button class="cart-close" id="closeFav">x</button>
+      </div>
+
+      <div class="cart-content" id="favItems">
+        <p class="cart-empty">Nu ai favorite.</p>
+      </div>
+    </aside>
+
+
+
+
+
+
+    <script>
+      const btn = document.getElementById("mobileFiltersBtn");
+      const overlay = document.getElementById("filtersOverlay");
+      const filterPanel = document.querySelector(".filter");
+
+      function openFilters() {
+        filterPanel.classList.add("is-open");
+        overlay.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+
+      function closeFilters() {
+        filterPanel.classList.remove("is-open");
+        overlay.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+
+      btn?.addEventListener("click", () => {
+        const isOpen = filterPanel.classList.contains("is-open");
+        isOpen ? closeFilters() : openFilters();
+      });
+
+      overlay?.addEventListener("click", closeFilters);
+    </script>
+
+
+    <script>
+      document.addEventListener("click", function (e) {
+        const brandEl = e.target.closest(".brand-cell[data-brand]");
+        if (!brandEl) return;
+
+        const brand = (brandEl.dataset.brand || "").toLowerCase().trim();
+        const brandSelect = document.getElementById("brand");
+
+        if (brandSelect) {
+          brandSelect.value = brand;
+          console.log("Setat brand in select:", brand);
+        }
+
+        const menuSection = document.getElementById("menu");
+        if (menuSection) {
+          menuSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+        if (typeof applyFilters === "function") {
+          applyFilters();
+          console.log("applyFilters a fost apelată din click pe brand");
+        } else {
+          console.warn("applyFilters NU este definită global.");
+        }
+      });
+    </script>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBHda-LjpBJeBGjGJNLiMkfICJHSQhR0tA",
+        authDomain: "site12-a5.firebaseapp.com",
+        projectId: "site12-a5",
+        storageBucket: "site12-a5.firebasestorage.app",
+        messagingSenderId: "729283937837",
+        appId: "1:729283937837:web:ab972c159fd1aa90c29aa4",
+      };
+
+      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+      window.db = firebase.firestore();
+    </script>
+
+    <script type="module" src="js/firebase.js" defer></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const grid = document.getElementById("productsGrid");
+        if (!grid) return;
+
+        const myIP = "89.32.141.248";
+        let userIP = "";
+
+        try {
+          const ipRes = await fetch("https://api64.ipify.org?format=json");
+          const ipData = await ipRes.json();
+          userIP = ipData.ip || "";
+        } catch (e) {
+          console.warn("Nu am putut lua IP-ul", e);
+        }
+
+        function moneyFormat(num) {
+          try {
+            return new Intl.NumberFormat("ro-MD").format(num);
+          } catch {
+            return String(num);
+          }
+        }
+
+        function renderFavButtonState(btn) {
+          const id = btn.dataset.id;
+          if (window.isFav && window.isFav(id)) {
+            btn.textContent = "♥";
+            btn.style.color = "#dc2626";
+          } else {
+            btn.textContent = "♡";
+            btn.style.color = "";
+          }
+        }
+
+        try {
+          const snap = await window.db
+            .collection("products")
+            .get({ source: "server" });
+
+          if (snap.empty) {
+            grid.innerHTML =
+              "<p style='color:#666'>Nu există produse încă.</p>";
+            return;
+          }
+
+          grid.innerHTML = "";
+          console.log("Produse găsite:", snap.size);
+          snap.forEach((doc) => {
+            const p = doc.data();
+
+            const img =
+              Array.isArray(p.images) && p.images.length ? p.images[0] : "";
+            const price = p.price ?? "";
+            const title = p.title || p.name || "Produs";
+
+            const brand = (p.brand || "").toLowerCase();
+            const search = (p.model || p.search || title || "").toLowerCase();
+
+
+            const type = (p.type || "").toLowerCase().trim();
+            const gender = (p.gender || "").toLowerCase().trim();
+            const category = (p.category || "").toLowerCase().trim();
+
+            const sizeValue = Array.isArray(p.sizes) ? p.sizes.map(s => String(s).trim().toLowerCase()).join(",") : "";
+
+            const model = (p.model || "").toLowerCase().trim();
+
+            grid.insertAdjacentHTML(
+              "beforeend",
+              `
+  <div class="pCard card-item"
+    data-id="${doc.id}"
+    data-search="${search}"
+    data-price="${Number(price || 0)}"
+    data-img="${img}"
+    data-brand="${brand}"
+    data-type="${type}"
+    data-gender="${gender}"
+    data-category="${category}"
+    data-size="${sizeValue}"
+    data-model="${model}">
+
+
+    <!-- Left badges -->
+    <div class="pCard-badges">
+      ${p.discount ? `<span class="pBadge pBadge--discount">-${p.discount}%</span>` : ``}
+      ${p.isHot ? `<span class="pBadge pBadge--hot">HOT</span>` : ``}
+    </div>
+
+    <!-- Right actions -->
+    <div class="pCard-actions">
+
+
+      <button
+  type="button"
+  class="fav btn-fav pIconBtn"
+  data-id="${doc.id}"
+  data-name="${String(title).replaceAll('"', '&quot;')}"
+  data-price="${Number(price || 0)}"
+  data-currency="${p.currency || 'MDL'}"
+  data-img="${img}"
+  aria-label="Favorite">
+  ♡
+</button>
+
+<button class="btn-del admin-only" data-del="${doc.id}" style="display:none;">
+  <i class="bx bx-trash"></i>
+</button>
+
+
+
+
+
+
+    </div>
+<div class="pCard-badges">
+  ${p.pills?.purple ? `<span class="pBadge pBadge--purple">${p.pills.purple}</span>` : ""}
+  ${p.pills?.red ? `<span class="pBadge pBadge--red">${p.pills.red}</span>` : ""}
+</div>
+    <!-- Image -->
+    <div class="pCard-imgWrap">
+      <img class="pCard-img" src="${img}" alt="${title}" onerror="this.src='./images/logo.jpg'">
+    </div>
+
+    <!-- Brand pill -->
+    <div class="pCard-brand">${brand || "BRAND"}</div>
+
+    <!-- Title (mai mic) -->
+    <h3 class="pCard-title">${title}</h3>
+
+    <!-- Price (mai mic) -->
+    <div class="pCard-priceRow">
+      <div class="pCard-price">
+        ${moneyFormat(price)} ${p.currency || "MDL"}
+      </div>
+
+
+      ${p.oldPrice
+                ? `<div class="pCard-oldPrice">${moneyFormat(p.oldPrice)} ${p.currency || "MDL"}</div>`
+                : ``
+              }
+    </div>
+
+    <!-- Bottom buttons -->
+    <div class="pCard-bottom">
+      <!-- Detalii -->
+      <a class="pBtn pBtn--green" href="./pages/product.html?id=${doc.id}">
+        Detalii
+      </a>
+
+      <!-- Selectează mărimea -> duce direct la secțiunea de mărimi -->
+      <a class="pBtn pBtn--outline" href="./pages/product.html?id=${doc.id}#marimi">
+        Selectează mărimea
+      </a>
+    </div>
+  </div>
+  `
+            );
+
+          });
+          document.querySelectorAll(".admin-only").forEach((btn) => {
+            btn.style.display = window.isAdmin ? "inline-flex" : "none";
+          });
+
+          grid.querySelectorAll(".btn-fav").forEach((btn) => {
+            const id = btn.dataset.id;
+            const active = typeof window.isFav === "function" ? window.isFav(id) : false;
+            btn.textContent = active ? "♥" : "♡";
+            btn.style.color = active ? "#dc2626" : "";
+          });
+
+          grid.addEventListener("click", (e) => {
+            const favBtn = e.target.closest(".btn-fav");
+            if (favBtn) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              const product = {
+                id: String(favBtn.dataset.id || ""),
+                name: favBtn.dataset.name || "Produs",
+                price: Number(favBtn.dataset.price || 0),
+                currency: favBtn.dataset.currency || "MDL",
+                img: favBtn.dataset.img || "",
+              };
+
+              if (typeof window.toggleFav !== "function") {
+                alert("favorites.js nu este încărcat!");
+                return;
+              }
+
+              window.toggleFav(product);
+
+              const active = typeof window.isFav === "function" ? window.isFav(product.id) : false;
+              favBtn.textContent = active ? "♥" : "♡";
+              favBtn.style.color = active ? "#dc2626" : "";
+
+              if (typeof window.openFavDrawer === "function") window.openFavDrawer();
+              return;
+            }
+
+            const delBtn = e.target.closest(".btn-del");
+            if (delBtn) {
+              const id = delBtn.dataset.del;
+              const ok = confirm("Sigur vrei să ștergi produsul?");
+              if (!ok) return;
+
+              window.db
+                .collection("products")
+                .doc(id)
+                .delete()
+                .then(() => {
+                  const card = delBtn.closest(".card-item");
+                  if (card) card.remove();
+                })
+                .catch((err) => {
+                  console.error(err);
+                  alert("Nu am putut șterge produsul. Vezi consola.");
+                });
+            }
+          });
+
+
+          if (typeof window.applyFilters === "function") window.applyFilters();
+        } catch (err) {
+          console.error(err);
+          grid.innerHTML =
+            "<p style='color:red'>Eroare la încărcarea produselor. Vezi consola.</p>";
+        }
+      });
+    </script>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+      window.addEventListener("load", function () {
+        emailjs.init("W73j0It1a6rJvnYgg");
+        console.log("EMAILJS INIT OK");
+      });
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+      emailjs.init({
+        publicKey: "W73j0It1a6rJvnYgg"
+      });
+    </script>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AQ3ORLiM3R0SOXZKL03ML-BIz4l4way37LdZBEq7GySKbiycNu9TnE0KSHYdBg3CWsOj81eZRzxovRdS&currency=EUR"></script>
+    <script src="js/cart.js"></script>
+    <script type="module" src="js/swiper-bundle.min.js" defer></script>
+    <script type="module" src="js/scrollreveal.js" defer></script>
+    <script type="module" src="js/auth.js" defer></script>
+    <script type="module" src="js/script.js" defer></script>
+    <script type="module" src="js/favourites.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="module" src="js/email.js"></script>
+</body>
+
+</html>
