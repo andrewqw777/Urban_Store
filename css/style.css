@@ -4091,3 +4091,27 @@ body.modal-open {
     gap: 10px;
   }
 }
+
+
+
+.size-btn{
+  width:64px;
+  height:42px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  background:#fff;
+  cursor:pointer;
+  font-size:13px;
+  font-weight:600;
+  transition:.2s;
+}
+
+.size-btn.selected{
+  border:2px solid black;
+  background: whitesmoke;
+  font-weight:600;
+}
+
+.size-btn:hover{
+  border-color:black;
+}
